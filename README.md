@@ -1,2 +1,2 @@
 # Integrify
-This repo is for exercises done at integrify
+This repo is for assignments done at integrify
