@@ -1,0 +1,184 @@
+GIT Assignment
+Name : Slah-ud-din Sani
+
+
+$ git --version
+git version 2.22.0.windows.1
+
+$ git config --global user.name "Slah-Sani"
+$ git config --global user.email "sanislah@gmail.com"
+
+$ git config --list
+core.editor="C:\Users\sanis\AppData\Local\atom\app-1.37.0\atom.exe" --wait
+user.name=Slah-Sani
+user.email=sanislah@gmail.com
+
+
+sanis@SANI-PC MINGW64 /D/git
+$ git clone https://github.com/Slah-Sani/testgit.git
+Cloning into 'testgit'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ ls
+README.md
+
+
+"""After adding a .py file in PyCharm"""
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .idea/
+        fun.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git add fun.py
+
+""" Now the file is added to staging area with add command"""
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   fun.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .idea/
+
+
+$ git commit -m "first version of code"
+[master 7a41011] first version of code
+ 1 file changed, 1 insertion(+)
+ create mode 100644 fun.py
+## file is committed to local version of control system.
+
+
+$ git log
+commit 79c17c5a488ef8df6b0c65b863df8871515af594 (HEAD -> master)
+Author: Slah-Sani <sanislah@gmail.com>
+Date:   Mon Jun 10 23:03:12 2019 +0300
+
+    first version of code
+
+commit 9b9c5394af082999f9210ebeac98c1b35963ec5d (origin/master, origin/HEAD)
+Author: Slah-Sani <51594854+Slah-Sani@users.noreply.github.com>
+Date:   Mon Jun 10 22:54:49 2019 +0300
+
+    Initial commit
+
+
+
+## push command will push committed changes to remote server
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 322 bytes | 161.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/Slah-Sani/testgit.git
+   9b9c539..79c17c5  master -> master
+
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git checkout -- fun.py
+## to revert changes in fun.py
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git checkout -- .
+## will revert changes made in all the files
+
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git branch slave
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git branch
+* master
+  slave
+
+sanis@SANI-PC MINGW64 /D/git/testgit (master)
+$ git checkout slave
+Switched to branch 'slave'
+
+sanis@SANI-PC MINGW64 /D/git/testgit (slave)
+$ git branch pupil
+
+sanis@SANI-PC MINGW64 /D/git/testgit (slave)
+$ git branch
+  master
+  pupil
+* slave
+
+
+$ git merge pupil
+Updating 46e5548..6e49745
+Fast-forward
+ fun.py | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+
+sanis@SANI-PC MINGW64 /D/git/testgit (slave)
+$ git push --set-upstream origin slave
+Total 0 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'slave' on GitHub by visiting:
+remote:      https://github.com/Slah-Sani/testgit/pull/new/slave
+remote:
+To https://github.com/Slah-Sani/testgit.git
+ * [new branch]      slave -> slave
+Branch 'slave' set up to track remote branch 'slave' from 'origin'.
+
+
+
+$ git show HEAD
+commit 0ab4ec7b6ef1cb3d888207f68fddbc9c3cfc2991 (HEAD -> master)
+Author: Slah-Sani <sanislah@gmail.com>
+Date:   Tue Jun 11 00:34:16 2019 +0300
+
+    further edit
+
+diff --git a/fun.py b/fun.py
+index 1f77102..177eeff 100644
+--- a/fun.py
++++ b/fun.py
+@@ -1,6 +1,7 @@
+ fun = input("Do you know basics of git: ")
+ if fun == "yes":
+     print("great")
++    print("you are smart")
+ else:
+     if fun == "no":
+          print("let's practice more. ")
+
+## HEAD pointer keeps moving and in majority of the cases it refers to most recent commits.
+
+
+
+git clone-- means you are making a copy of the repository in your system.
+
+git fork-- means you are copying the repository to your Github account.
+
+git pull-- means you are fetching the last modified repository.
+
+git push -- means you are returning the repository after modifying it.
+
+
+git clone -- is downloading and git pull is refreshing.
